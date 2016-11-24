@@ -11,8 +11,11 @@ def new
 end
 
 def create
-  # Picture.create(picture: picture_params[:picture], season: picture_params[:season], month: picture_params[:month], time: picture_params[:time], location: picture_params[:location], theme: picture_params[:theme], comment: picture_params[:comment], user_id: current_user.id)
-   Picture.create(picture_params)
+  @picture = Picture.create(picture: picture_params[:picture], season: picture_params[:season], month: picture_params[:month], time: picture_params[:time], location: picture_params[:location], theme: picture_params[:theme], comment: picture_params[:comment], user_id: current_user.id)
+  binding.pry
+   Place.create(name: picture_params[:location],picture_id: @picture.id)
+
+
   redirect_to controller: :pictures, action: :index
 end
 
@@ -20,6 +23,12 @@ end
 
 def show
   @picture = Picture.find(params[:id])
+  @place = Place.where(picture_id: params[:id])
+  @hash = Gmaps4rails.build_markers(@place) do |place, marker|
+    marker.lat place.latitude
+    marker.lng place.longitude
+    marker.infowindow render_to_string(partial: "places/infowindow", locals: { place: place })
+  end
 end
 
 
