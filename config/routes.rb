@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :gmaps
   devise_for :users
 
   root 'pictures#index'

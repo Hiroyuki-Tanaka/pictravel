@@ -30,35 +30,23 @@
           <% end %>
           </div>
 
-<h2>-----データ-----</h2>
-<ul class="list-group">
-  <li class="list-group-item">平均評価:<%= @picture.ave_rank %></li>
-  <li class="list-group-item">場所:<%= @picture.location %></li>
-  <li class="list-group-item">季節:<%= @picture.season %></li>
-  <li class="list-group-item"><%= @picture.month %>月</li>
-  <li class="list-group-item">時間帯:<%= @picture.time %></li>
-  <li class="list-group-item">テーマ:<%= @picture.theme %></li>
-  <li class="list-group-item">コメント:<%= @picture.comment %></li>
-</ul>
+        <h2>-----データ-----</h2>
+        <ul class="list-group">
+          <li class="list-group-item">平均評価:<%= @picture.ave_rank %></li>
+          <li class="list-group-item">場所:<%= @picture.location %></li>
+          <li class="list-group-item">季節:<%= @picture.season %></li>
+          <li class="list-group-item"><%= @picture.month %>月</li>
+          <li class="list-group-item">時間帯:<%= @picture.time %></li>
+          <li class="list-group-item">テーマ:<%= @picture.theme %></li>
+          <li class="list-group-item">コメント:<%= @picture.comment %></li>
+        </ul>
 
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
-
-    <script type="text/javascript">
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers(<%=raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-        });
-    </script>
 
 
-           </div>
        </div>
-    </div>
+   </div>
+</div>
 
 <div class="show-bottom">
   <h2>-----評価・コメント-----</h2>

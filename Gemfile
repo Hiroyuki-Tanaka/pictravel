@@ -55,6 +55,3 @@ gem 'twitter-bootswatch-rails', '~> 3.1.1'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'execjs'
 gem 'therubyracer'
-gem "gmaps4rails"
-gem "geocoder"
-gem 'execjs'

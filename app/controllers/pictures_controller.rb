@@ -3,13 +3,6 @@ class PicturesController < ApplicationController
 def index
   @pictures = Picture.order("created_at DESC").page(params[:page]).per(15)
   @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
-  @gmaps = Gmap.all
-  @hash = Gmaps4rails.build_markers(@gmaps) do |gmap, marker|
-    marker.lat gmap.latitude
-    marker.lng gmap.longitude
-    marker.infowindow gmap.description
-    marker.json({title: gmap.title})
-  end
 end
 
 
@@ -44,7 +37,6 @@ end
 def update
   picture = Picture.find(params[:id])
   if picture.user_id == current_user.id
-    # binding.pry 1
   picture.update(season: picture_params[:season],month: picture_params[:month],time: picture_params[:time],location: picture_params[:location],theme: picture_params[:theme],theme: picture_params[:theme])
   end
   redirect_to root_path
