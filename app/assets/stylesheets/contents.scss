@@ -2,11 +2,15 @@
 
 
 
-
+body {
+  background-image: image-url("cheap_diagonal_fabric.png") !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .contents {
-  height: 100vh;
-  width: 100vw;
+  flex: 1;
 }
 
 header {
@@ -42,5 +46,7 @@ header {
   height: 50px;
   background-color: black;
 }
+
+
 
 

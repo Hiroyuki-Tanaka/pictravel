@@ -11,38 +11,16 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body style="background-image:url(<%= asset_path "cheap_diagonal_fabric.png" %>)">
+<body>
+  <%= render 'layouts/header' %>
+
+
 <div class="contents">
-    <header>
-    <nav class="navbar navbar-inverse">
-      <ul>
-        <button type="button" class="btn btn-default navbar-btn">
-        <li><a href="/">HOMEへ戻る</a></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "テーマから探す", search_pictures_path %></li></button>
-
-
-      <% if user_signed_in? %>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "マイページ", user_path(current_user.id) %></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "新規投稿", new_picture_path %></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li> <%= link_to "ログアウト", destroy_user_session_path,:method => 'delete' %></li></button>
-      <% else %>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "新規登録", new_user_registration_path  %></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "ログイン", new_user_session_path %></li></button>
-      </ul>
-     <!--  </ul> -->
-      <% end %>
-      </nav>
-    <!-- </div> -->
-  </header>
-
-
   <%= yield %>
-
-
-
-  <footer class="footer">
-    This is footer
-  </footer>
 </div>
+
+  <%= render 'layouts/footer' %>
+
+
 </body>
 </html>
