@@ -41,8 +41,25 @@
           <li class="list-group-item">コメント:<%= @picture.comment %></li>
         </ul>
 
+          <div style='width: 800px;'>
+              <div id="map" style='width: 375px; height: 300px;'>
+                <script type="text/javascript">
+                    handler = Gmaps.build('Google');
+                    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                    markers = handler.addMarkers([
+                    {
+                    "lat": 35.658689,
+                    "lng": 139.697798,
+                    "infowindow": "テックキャンプ渋谷オフィス"
+                    }
+                    ]);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                    });
+                </script>
 
-
+              </div>
+          </div>
 
        </div>
    </div>

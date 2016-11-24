@@ -16,5 +16,7 @@
 //= require darkly/loader
 //= require darkly/bootswatch
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
