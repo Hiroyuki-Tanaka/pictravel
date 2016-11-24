@@ -2,7 +2,7 @@
       <p><%= @user.name %>さんの投稿一覧</p>
       <p>平均評価:<%= @total_ave_ranks %></p>
       <div class="show container">
-          <% @user.pictures.each do |picture| %>
+          <% @pictures.each do |picture| %>
           <div class="row">
               <div class="show-left col-sm-6">
                   <div class="show-picture">
@@ -48,5 +48,6 @@
           </div>
       </div>
     <% end %>
+    <%= paginate(@pictures) %>
    </div>
 </div>

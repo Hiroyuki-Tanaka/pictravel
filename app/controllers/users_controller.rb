@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 def show
   @user = User.find(params[:id])
-  @pictures = @user.pictures.order("created_at DESC")
+  @pictures = @user.pictures.order("created_at DESC").page(params[:page]).per(3)
   @ave_ranks = []
   @user.pictures.each do |picture|
     if picture.ave_rank

@@ -1,23 +1,25 @@
 
-<div class="comment_new">
-
+<div class="input_form">
 <%= form_for [@picture, @comment] do |f| %>
-
-<div>
-   <%= f.label :評価 %>
+  <div class="form-group">
+   <label>評価</label>
    <%= f.select :rank, options_for_select(["1", "2", "3","4", "5", "6","7", "8", "9","10"])%>
-</div>
+  </div>
 
-<div style="margin: 8px 0">
-   <%= f.text_area :comment, placeholder: 'コメント' %>
-</div>
+  <div class="form-group">
+  <label>コメント</label>
+   <%= f.text_area :comment %>
+  </div>
 
-
-<div>
-   <%= button_tag type: "submit" do %>
-   投稿する<% end %>
-</div>
-
+  <div class="form-group">
+     <%= button_tag type: "submit" do %>
+     投稿する<% end %>
+  </div>
 <% end %>
-
 </div>
+
+
+
+
+
+
