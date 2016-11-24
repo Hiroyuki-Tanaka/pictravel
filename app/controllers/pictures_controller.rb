@@ -23,12 +23,7 @@ end
 
 def show
   @picture = Picture.find(params[:id])
-  @place = Place.where(picture_id: params[:id])
-  @hash = Gmaps4rails.build_markers(@place) do |place, marker|
-    marker.lat place.latitude
-    marker.lng place.longitude
-    marker.infowindow render_to_string(partial: "places/infowindow", locals: { place: place })
-  end
+  @place = Place.find_by(picture_id: params[:id])
 end
 
 

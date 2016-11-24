@@ -72,6 +72,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     fssm (0.2.10)
+    geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
@@ -213,6 +214,7 @@ DEPENDENCIES
   compass-rails (~> 2.0)
   devise
   execjs
+  geocoder
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
