@@ -12,7 +12,6 @@ end
 
 def create
   @picture = Picture.create(picture: picture_params[:picture], season: picture_params[:season], month: picture_params[:month], time: picture_params[:time], location: picture_params[:location], theme: picture_params[:theme], comment: picture_params[:comment], user_id: current_user.id)
-  binding.pry
    Place.create(name: picture_params[:location],picture_id: @picture.id)
 
 
@@ -41,7 +40,7 @@ end
 def update
   picture = Picture.find(params[:id])
   if picture.user_id == current_user.id
-  picture.update(season: picture_params[:season],month: picture_params[:month],time: picture_params[:time],location: picture_params[:location],theme: picture_params[:theme],theme: picture_params[:theme])
+  picture.update(season: picture_params[:season], month: picture_params[:month], time: picture_params[:time], location: picture_params[:location],theme: picture_params[:theme], theme: picture_params[:theme])
   end
   redirect_to root_path
 end
