@@ -41,6 +41,23 @@
           <li class="list-group-item">コメント:<%= @picture.comment %></li>
         </ul>
 
+       </div>
+   </div>
+</div>
+
+<div class="row">
+
+<div class="show-right col-sm-6">
+  <h2>-----評価・コメント-----</h2>
+  <% @picture.comments.each do |comment|%>
+  <ul class="list-group">
+    <li class="list-group-item">評価:<%= comment.rank %>/10</li>
+    <li class="list-group-item">コメント:<%= comment.comment %></li>
+  </ul>
+  <% end %>
+</div>
+
+          <div class="show-right col-sm-6">
           <div style='width: 800px;'>
               <div id="map" style='width: 375px; height: 300px;'>
                 <script type="text/javascript">
@@ -60,20 +77,9 @@
 
               </div>
           </div>
+          </div>
 
-       </div>
-   </div>
+
 </div>
-
-<div class="show-bottom">
-  <h2>-----評価・コメント-----</h2>
-  <% @picture.comments.each do |comment|%>
-  <ul class="list-group">
-    <li class="list-group-item">評価:<%= comment.rank %>/10</li>
-    <li class="list-group-item">コメント:<%= comment.comment %></li>
-  </ul>
-  <% end %>
-</div>
-
 
 
