@@ -1,4 +1,74 @@
 
-<%= @picture.season %>
-<%= @picture.comment %>
-<%= @picture.theme %>
+<div class="show container">
+   <div class="row">
+       <div class="show-left col-sm-6">
+         <div class="show-picture">
+             <%= image_tag @picture.picture, class: "show_picture_size" %>
+         </div>
+       </div>
+
+       <div class="show-right col-sm-6">
+          <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          選択
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <% if user_signed_in? %>
+          <li><%= link_to "この作品を投稿する",new_picture_comment_path(@picture.id)  %></li>
+          <% end %>
+          <% if user_signed_in? && current_user.id == @picture.user_id %>
+          <li>
+          <%= link_to '編集', "/pictures/#{@picture.id}/edit", method: :get %>
+          </li>
+          <li>
+          <%= link_to '削除', "/pictures/#{@picture.id}", method: :delete %>
+          </li>
+          <% else %>
+          <li><%= link_to "ログイン",new_user_session_path %>
+          </li>
+          <% end %>
+          </div>
+
+<h2>-----データ-----</h2>
+<ul class="list-group">
+  <li class="list-group-item">平均評価:<%= @picture.ave_rank %></li>
+  <li class="list-group-item">場所:<%= @picture.location %></li>
+  <li class="list-group-item">季節:<%= @picture.season %></li>
+  <li class="list-group-item"><%= @picture.month %>月</li>
+  <li class="list-group-item">時間帯:<%= @picture.time %></li>
+  <li class="list-group-item">テーマ:<%= @picture.theme %></li>
+  <li class="list-group-item">コメント:<%= @picture.comment %></li>
+</ul>
+
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+    <script type="text/javascript">
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(<%=raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+    </script>
+
+
+           </div>
+       </div>
+    </div>
+
+<div class="show-bottom">
+  <h2>-----評価・コメント-----</h2>
+  <% @picture.comments.each do |comment|%>
+  <ul class="list-group">
+    <li class="list-group-item">評価:<%= comment.rank %>/10</li>
+    <li class="list-group-item">コメント:<%= comment.comment %></li>
+  </ul>
+  <% end %>
+</div>
+
+
+

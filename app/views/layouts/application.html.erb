@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pictravel</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
+  <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body style="background-image:url(<%= asset_path "cheap_diagonal_fabric.png" %>)">
+<div class="contents">
+    <header>
+    <nav class="navbar navbar-inverse">
+      <ul>
+        <button type="button" class="btn btn-default navbar-btn">
+        <li><a href="/">HOMEへ戻る</a></li></button>
+        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "テーマから探す", search_pictures_path %></li></button>
 
+
+      <% if user_signed_in? %>
+        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "マイページ", user_path(current_user.id) %></li></button>
+        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "新規投稿", new_picture_path %></li></button>
+        <button type="button" class="btn btn-default navbar-btn"><li> <%= link_to "ログアウト", destroy_user_session_path,:method => 'delete' %></li></button>
+      <% else %>
+        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "新規登録", new_user_registration_path  %></li></button>
+        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "ログイン", new_user_session_path %></li></button>
+      </ul>
+     <!--  </ul> -->
+      <% end %>
+      </nav>
+    <!-- </div> -->
+  </header>
+
+
+  <%= yield %>
+
+
+
+  <footer class="footer">
+    This is footer
+  </footer>
+</div>
 </body>
 </html>

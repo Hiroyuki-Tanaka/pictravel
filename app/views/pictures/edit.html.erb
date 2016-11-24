@@ -1,0 +1,42 @@
+
+
+<div class="input_form">
+<div class="form-group">編集</div>
+
+  <%= form_for(@picture , method: :patch) do |f| %>
+  <div class="form-group">
+    <%= f.label :Season %><br />
+    <%=  f.select :season, options_for_select(["春", "夏", "秋", "冬"])%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Month %><br />
+    <%=  f.select :month, options_for_select(["１月", "２月", "３月","４月", "５月", "６月","７月", "８月", "９月","１０月", "１１月", "１２月"]) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Time %><br />
+    <%=  f.select :time, options_for_select(["朝", "昼", "夕方","夜"]) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Location %><br />
+    <%=  f.text_field :location, placeholder: "Location" %>
+  </div>
+
+ <div class="form-group">
+    <%= f.label :Theme %><br />
+    <%=  f.select :theme, options_for_select(["風景", "食事", "動物","その他"]) %>
+  </div>
+
+
+ <div class="form-group text_area">
+    <%= f.label :Comment %><br />
+    <%=  f.text_area :comment, placeholder: "Comment" %>
+  </div>
+
+  <div class="form-group">
+  <button type="submit" class="btn btn-default">編集</button>
+  </div>
+<% end %>
+</div>

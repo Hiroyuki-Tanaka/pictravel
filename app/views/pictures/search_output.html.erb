@@ -1,0 +1,28 @@
+
+<div class="index container">
+ 検索結果
+   <div class="row">
+     <div class="index-left col-sm-9">
+        <% @pictures.each_slice(3) do |pic_array|%>
+        <div class="index-left row">
+           <% pic_array.each do |pic| %>
+           <div class="index-left-picture col-sm-4 ">
+              <a href="/pictures/<%= pic.id %>">
+              <%= image_tag pic.picture, class: "image-width" %></a>
+           </div>
+           <% end %>
+        </div>
+        <% end %>
+     </div>
+
+     <div class="index-right col-sm-3">
+     -----ランキング-----
+     <% @ranking.each.with_index(1) do |rank_picture, i| %>
+       <ul class="list-group">
+          <a href="/pictures/<%= rank_picture.id %>"><li class="list-group-item"><%= i %></li>
+          <li class="list-group-item"><%= image_tag rank_picture.picture %></li></a>
+       </ul>
+     <% end %>
+     </div>
+   </div>
+</div>

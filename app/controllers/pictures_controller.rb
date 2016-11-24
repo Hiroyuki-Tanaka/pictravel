@@ -1,18 +1,75 @@
 class PicturesController < ApplicationController
 
 def index
-  @pictures = Picture.all
+  @pictures = Picture.order("created_at DESC").page(params[:page]).per(15)
+  @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
+  @gmaps = Gmap.all
+  @hash = Gmaps4rails.build_markers(@gmaps) do |gmap, marker|
+    marker.lat gmap.latitude
+    marker.lng gmap.longitude
+    marker.infowindow gmap.description
+    marker.json({title: gmap.title})
+  end
 end
 
+
 def new
+  @picture = Picture.new
 end
 
 def create
-  Picture.create(picture: params[:picture], season: params[:season], month: params[:month], time: params[:time], comment: params[:comment], theme:params[:theme],user_id: current_user.id)
+  # Picture.create(picture: picture_params[:picture], season: picture_params[:season], month: picture_params[:month], time: picture_params[:time], location: picture_params[:location], theme: picture_params[:theme], comment: picture_params[:comment], user_id: current_user.id)
+   Picture.create(picture_params)
+  redirect_to controller: :pictures, action: :index
 end
+
+
 
 def show
   @picture = Picture.find(params[:id])
 end
 
+
+def destroy
+  @picture = Picture.find(params[:id])
+  if @picture.user_id == current_user.id
+  @picture.destroy
+  end
 end
+
+def edit
+  @picture = Picture.find(params[:id])
+end
+
+def update
+  picture = Picture.find(params[:id])
+  if picture.user_id == current_user.id
+    # binding.pry 1
+  picture.update(season: picture_params[:season],month: picture_params[:month],time: picture_params[:time],location: picture_params[:location],theme: picture_params[:theme],theme: picture_params[:theme])
+  end
+  redirect_to root_path
+end
+
+def search
+end
+
+def search_output
+ @pictures = Picture.where(season: output_params[:season], time: output_params[:time], theme: output_params[:theme]).order("created_at DESC")
+ @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
+end
+
+
+
+private
+def picture_params
+ params.require(:picture).permit(:picture, :season, :month, :time, :theme, :comment, :location)
+
+end
+
+def output_params
+  params.permit(:season, :time, :theme)
+end
+
+end
+
+

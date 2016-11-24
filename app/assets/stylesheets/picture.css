@@ -1,0 +1,60 @@
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+
+/*picture-index page ここから*/
+
+.index .container {
+/*  height: 70%;*/
+}
+
+.index-left {
+/*  width: 70%;*/
+  height: 100%;
+}
+
+.index-left .row{
+  /*height: 33.3%;*/
+}
+
+.index-left-picture {
+  height: 100%;
+}
+
+
+.image-width {
+  width: 295px;
+  height: 180px;
+}
+
+
+.index-right  {
+  /*width: 30%;*/
+}
+
+.index-right-ranking {
+  height: 30%;
+}
+
+/*picture-index page ここまで*/
+
+.show_picture_size {
+  width: 450px;
+  height: 300px;
+}
+
+.radiobox {
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.text_area {
+  height: 100px;
+}
+
+

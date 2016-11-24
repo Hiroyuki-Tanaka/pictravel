@@ -1,0 +1,39 @@
+
+<%= form_tag('/pictures/search_output/test', method: :get) do %>
+
+<div class="radiobox">
+<ul style="list-style:none;">
+＜季節＞選択肢から選んでください。
+<li><input  name="season" type="radio" value="春">春</input></li>
+<li><input  name="season" type="radio" value="夏">夏</input></li>
+<li><input  name="season" type="radio" value="秋">秋</input></li>
+<li><input  name="season" type="radio" value="冬">冬</input></li>
+</ul>
+</div>
+
+<div class="radiobox">
+<ul style="list-style:none;">
+＜時間帯＞選択肢から選んでください。
+<li><input  name="time" type="radio" value="朝">朝</input></li>
+<li><input  name="time" type="radio" value="昼">昼</input></li>
+<li><input  name="time" type="radio"  value="夕方">夕方</input></li>
+<li><input  name="time" type="radio" value="夜">夜</input></li>
+</ul>
+</div>
+
+<div class="radiobox">
+<ul style="list-style:none;">
+＜テーマ＞選択肢から選んでください。
+<li><input  name="theme" type="radio"  value="風景">風景</input></li>
+<li><input  name="theme" type="radio"  value="食事">食事</input></li>
+<li><input  name="theme" type="radio"  value="動物">動物</input></li>
+<li><input  name="theme" type="radio"  value="その他">その他</input></li>
+</ul>
+</div>
+
+<div class="radiobox">
+<button title="検索" type="submit" >検索</button>
+</div>
+
+
+<% end %>

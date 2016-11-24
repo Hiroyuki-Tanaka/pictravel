@@ -50,3 +50,11 @@ gem 'compass-rails','~> 2.0'
 gem 'sprockets', '2.11.0'
 gem 'devise'
 gem 'paperclip'
+gem 'kaminari'
+gem 'twitter-bootswatch-rails', '~> 3.1.1'
+gem 'twitter-bootswatch-rails-helpers'
+gem 'execjs'
+gem 'therubyracer'
+gem "gmaps4rails"
+gem "geocoder"
+gem 'execjs'
