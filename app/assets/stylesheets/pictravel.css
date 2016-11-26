@@ -1,5 +1,5 @@
 
-.index.container{
+.contents{
   margin: 15px 15px 15px 15px;
 }
 
@@ -40,6 +40,10 @@
 
 .text_area {
   height: 100px;
+}
+
+.textwhite{
+  color: white;
 }
 
 
