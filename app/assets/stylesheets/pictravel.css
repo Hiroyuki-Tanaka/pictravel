@@ -2,6 +2,11 @@
 .contents{
   margin: 15px 15px 15px 15px;
 }
+a.picture{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 
 .index-left {
