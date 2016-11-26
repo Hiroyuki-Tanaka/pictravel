@@ -1,0 +1,40 @@
+
+.index-left {
+  height: 100%;
+}
+
+.index-left-picture {
+  height: 100%;
+}
+
+.image-width {
+  width: 280px;
+  height: 180px;
+}
+
+.index-right-ranking {
+  height: 30%;
+}
+
+.ranking_picture {
+  height: 150px;
+  width: 240px;
+}
+
+.show_picture_size {
+  width: 450px;
+  height: 300px;
+}
+
+
+.radiobox {
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.text_area {
+  height: 100px;
+}
+
+

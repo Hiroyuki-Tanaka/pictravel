@@ -1,22 +1,30 @@
-    <header class="clearfix">
+    <header class="header clearfix">
+
+    <div class="logo">
+        <%= image_tag("PicTravel-logo.png") %>
+        </a>
+    </div>
+
 
     <nav class="navbar navbar-inverse">
-      <ul>
-        <button type="button" class="btn btn-default navbar-btn">
-        <li><a href="/">HOMEへ戻る</a></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "テーマから探す", search_pictures_path %></li></button>
+          <div class="header_dropdown dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">メニュー
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="/">HOMEへ戻る</a></li>
+          <li><%= link_to "テーマから探す", search_pictures_path %></li>
 
-
-      <% if user_signed_in? %>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "マイページ", user_path(current_user.id) %></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "新規投稿", new_picture_path %></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li> <%= link_to "ログアウト", destroy_user_session_path,:method => 'delete' %></li></button>
-      <% else %>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "新規登録", new_user_registration_path  %></li></button>
-        <button type="button" class="btn btn-default navbar-btn"><li><%= link_to "ログイン", new_user_session_path %></li></button>
-      </ul>
-     <!--  </ul> -->
-      <% end %>
-      </nav>
-    <!-- </div> -->
+          <% if user_signed_in? %>
+              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+              <li><%= link_to "新規投稿", new_picture_path %></li>
+              <li> <%= link_to "ログアウト", destroy_user_session_path,:method => 'delete' %></li>
+          <% else %>
+              <li><%= link_to "新規登録", new_user_registration_path  %></li>
+              <li><%= link_to "ログイン",new_user_session_path %>
+              </li></ul>
+          <% end %>
+          </div>
+    </nav>
   </header>
+

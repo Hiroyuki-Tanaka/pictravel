@@ -45,6 +45,8 @@
    </div>
 </div>
 
+
+<div class="container">
 <div class="row">
 
 <div class="show-right col-sm-6">
@@ -58,30 +60,27 @@
 </div>
 
 <div class="show-right col-sm-6">
-<div style='width: 800px;'>
-    <div id="map" style='width: 375px; height: 300px;'>
-      <script type="text/javascript">
-          handler = Gmaps.build('Google');
-          handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers([
-          {
+      <div id="map" style='width: 375px; height: 300px;'>
+        <script type="text/javascript">
 
-          "lat": <%= @place.latitude %>,
-          "lng": <%= @place.longitude %>,
-          "infowindow": "<%= @place.name %>"
-          }
-          ]);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          handler.getMap().setZoom(15);
-          });
-      </script>
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers([
+            {
 
-    </div>
+            "lat": <%= @place.latitude %>,
+            "lng": <%= @place.longitude %>,
+            "infowindow": "<%= @place.name %>"
+            }
+            ]);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(15);
+            });
+        </script>
+
+      </div>
+</div>
+
 </div>
 </div>
-
-
-</div>
-@
-

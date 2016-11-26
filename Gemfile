@@ -57,3 +57,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'gmaps4rails'
 gem 'geocoder'
+
+group :production, :staging do
+  gem 'rails_12factor'
+end

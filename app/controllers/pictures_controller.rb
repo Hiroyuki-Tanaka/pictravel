@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
 
 def index
-  @pictures = Picture.order("created_at DESC").page(params[:page]).per(15)
+  @pictures = Picture.order("created_at DESC").page(params[:page]).per(9)
   @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
 end
 

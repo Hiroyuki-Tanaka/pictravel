@@ -1,50 +1,64 @@
 
-
-
-
 body {
-  background-image: image-url("cheap_diagonal_fabric.png") !important;
+  background-image: url("cheap_diagonal_fabric.png") !important;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-weight: 600;
 }
 
 .contents {
   flex: 1;
 }
 
-header {
+/*header*/
+
+.header {
   height: 100px;
+  background-color: #222222;
+}
+
+.logo {
+  height: 50px;
+  width: 200px;
+  margin: auto;
 }
 
 
+.header_dropdown{
+  float: left;
+}
 
-
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
 
 .input_form {
-  width: 1440px;
+  width: 180px;
   margin: 0 auto;
 }
 
 .form-group {
-  width: 500px;
-  height: 30px;
+  width: 180px;
+  height: 50px;
   margin: 0 auto;
 }
 
-
-
-
-
-
-
-
-
-
+.show-left.col-sm-6{
+  margin: 10px 0px 0px 0px;
+}
 
 .footer {
-  height: 50px;
-  background-color: black;
+  height: 25px;
+  background-color: #222222;
+  color: white;
+  text-align:  center;
+}
+
+.center {
+  margin: 50px 0;
 }
 
 

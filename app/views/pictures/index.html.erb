@@ -17,9 +17,9 @@
      <div class="index-right col-sm-3 col-xs-0">
      -----ランキング-----
      <% @ranking.each.with_index(1) do |rank_picture, i| %>
-       <ul class="list-group">
-          <a href="/pictures/<%= rank_picture.id %>"><li class="list-group-item"><%= i %></li>
-          <li class="list-group-item"><%= image_tag rank_picture.picture, class: "ranking_picture" %></li></a>
+       <ul style="list-style:none;">
+          <a href="/pictures/<%= rank_picture.id %>"><%= i %></li>
+          <li><%= image_tag rank_picture.picture, class: "ranking_picture" %></li></a>
        </ul>
      <% end %>
      </div>
