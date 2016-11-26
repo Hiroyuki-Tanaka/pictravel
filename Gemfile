@@ -57,7 +57,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'heroku'
 
-group :production, :staging do
-  gem 'rails_12factor'
-end
