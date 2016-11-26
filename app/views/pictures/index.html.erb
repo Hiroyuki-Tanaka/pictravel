@@ -5,7 +5,7 @@
      <div class="index-left col-sm-9 col-xs-12">
         <% @pictures.each do |pic|%>
         <div class="index-left">
-           <div class="index-left-picture col-sm-4 col-xs-6 ">
+           <div class="index-left-picture col-sm-4 col-xs-6">
               <a href="/pictures/<%= pic.id %>">
               <%= image_tag pic.picture, class: "image-width list-mv02" %></a>
            </div>
