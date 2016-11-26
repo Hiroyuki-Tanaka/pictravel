@@ -60,4 +60,3 @@ gem 'geocoder'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'heroku'
-
