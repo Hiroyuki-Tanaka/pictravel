@@ -8,7 +8,7 @@
        </div>
 
        <div class="show-right col-sm-6">
-          <div class="dropdown">
+<!--           <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           選択
           <span class="caret"></span>
@@ -28,7 +28,16 @@
           <li><%= link_to "ログイン",new_user_session_path %>
           </li>
           <% end %>
-          </div>
+          </div> -->
+          <div class="menu">
+<% if user_signed_in? %>
+    <button class="menu_button"><%= link_to "この作品を投稿する",new_picture_comment_path(@picture.id)  %></button>
+<% end %>
+<% if user_signed_in? && current_user.id == @picture.user_id %>
+    <button class="menu_button" ><%= link_to '編集', "/pictures/#{@picture.id}/edit", method: :get %></button>
+    <button class="menu_button"><%= link_to '削除', "/pictures/#{@picture.id}", method: :delete %></button>
+<% end %>
+</div>
 
         <h2>-----データ-----</h2>
         <ul class="list-group textwhite">
@@ -84,3 +93,6 @@
 
 </div>
 </div>
+
+
+

@@ -1,13 +1,30 @@
     <header class="header clearfix">
 
     <div class="logo">
+        <a href="/">
         <%= image_tag("PicTravel-logo.png") %>
         </a>
     </div>
 
 
     <nav class="navbar navbar-inverse header_bottom">
-          <div class="dropdown">
+          <div class="menu">
+<button class="menu_button"><%= link_to "テーマから探す", search_pictures_path %></button>
+<% if user_signed_in? %>
+  <button class="menu_button"><%= link_to "マイページ", user_path(current_user.id) %></button>
+  <button class="menu_button"><%= link_to "新規投稿", new_picture_path %></button>
+  <button class="menu_button"><%= link_to "ログアウト", destroy_user_session_path,:method => 'delete' %></button>
+<% else %>
+  <button class="menu_button"><%= link_to "新規登録", new_user_registration_path  %></button>
+  <button class="menu_button"><%= link_to "ログイン",new_user_session_path %></button>
+<% end %>
+          </div>
+    </nav>
+  </header>
+
+
+<!-- 
+          <div class="for_iphone_dropdown dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">メニュー
           <span class="caret"></span>
           </button>
@@ -24,7 +41,4 @@
               <li><%= link_to "ログイン",new_user_session_path %>
               </li></ul>
           <% end %>
-          </div>
-    </nav>
-  </header>
-
+          </div> -->

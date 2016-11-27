@@ -1,0 +1,14 @@
+
+
+
+
+(function(d){
+document.write('<span class="admax-banner" data-admax-id="7ff0da765c28d133120c3a1f6281c425" data-width="300" data-height="250"></span>');
+var script = document.createElement('script');
+var head = document.getElementsByTagName('head')[0];
+script.defer = 'defer';
+script.async = 'async';
+script.src  = 'http://adm.shinobi.jp/st/bn.js';
+head.insertBefore(script, head.firstChild);
+})(document);
+
