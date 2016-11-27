@@ -79,7 +79,7 @@ $(document).ready(function(){
     .on('.dropdown-menu', function (e) { e.stopPropagation() })
     .on('click.dropdown.data-api' , toggle, Dropdown.prototype.toggle)
     .on('keydown.dropdown.data-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
-    .on('touchstart.dropdown.data-api', '.dropdown-menu', function (e) { e.stopPropagation() })
+    .on('touchstart.dropdown.data-api', '.dropdown-menu','.dropdown', 'dropdown-toggle' ,function (e) { e.stopPropagation() })
 
 
 });

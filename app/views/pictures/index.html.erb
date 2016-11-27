@@ -2,7 +2,8 @@
 <div class="index container">
  新着画像
    <div class="row">
-     <div class="index-left col-sm-9">
+     <div class="index-left col-sm-9 col-xs-12">
+
         <% @pictures.each do |pic|%>
         <div class="index-left">
            <div class="index-left-picture col-sm-4 col-xs-6">
@@ -13,6 +14,8 @@
         <% end %>
         <%= paginate(@pictures) %>
      </div>
+
+
 
      <div class="index-right col-sm-3 col-xs-0">
      -----ランキング-----
