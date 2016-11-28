@@ -10,7 +10,7 @@
         <% @pictures.each do |pic|%>
            <div class="index-left-picture col-sm-4 col-xs-6">
               <a class="picture" href="/pictures/<%= pic.id %>">
-              <%= image_tag pic.picture, class: "image-width list-mv02" %></a>
+              <%= image_tag pic.picture, class: "image-width" %></a>
            </div>
         <% end %>
         </div>
