@@ -52,6 +52,10 @@ body {
   margin: 0 auto;
 }
 
+.file_field_picture {
+  width: 250px;
+}
+
 .show-left.col-sm-6{
   margin: 10px 0px 0px 0px;
 }
