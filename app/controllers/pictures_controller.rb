@@ -1,8 +1,8 @@
 class PicturesController < ApplicationController
 
 def index
-  @pictures = Picture.includes(:user).order("created_at DESC").page(params[:page]).per(9)
-  @ranking = Picture.includes(:user).group(:ave_rank).order("ave_rank DESC").limit(3)
+  @pictures = Picture.order("created_at DESC").page(params[:page]).per(9)
+  @ranking = Picturegroup(:ave_rank).order("ave_rank DESC").limit(3)
 end
 
 
