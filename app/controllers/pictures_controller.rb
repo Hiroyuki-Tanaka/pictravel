@@ -1,8 +1,8 @@
 class PicturesController < ApplicationController
 
 def index
-  @pictures = Picture.order("created_at DESC").page(params[:page]).per(9)
-  @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
+  @pictures = Picture.includes(:user).order("created_at DESC").page(params[:page]).per(9)
+  @ranking = Picture.includes(:user).group(:ave_rank).order("ave_rank DESC").limit(3)
 end
 
 
@@ -21,7 +21,7 @@ end
 
 
 def show
-  @picture = Picture.find(params[:id])
+  @picture = Picture.includes(:user).find(params[:id])
   @place = Place.find_by(picture_id: params[:id])
 end
 

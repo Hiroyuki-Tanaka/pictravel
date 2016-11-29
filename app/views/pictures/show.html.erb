@@ -42,6 +42,7 @@
         <h2>-----データ-----</h2>
         <ul class="list-group textwhite">
           <li class="list-group-item">平均評価:<%= @picture.ave_rank %></li>
+         <li class="list-group-item"> <a href="/users/<%= @picture.user.id %>"  style="color:white;">投稿者:<%= @picture.user.name %></a></li>
           <li class="list-group-item">場所:<%= @picture.location %></li>
           <li class="list-group-item">季節:<%= @picture.season %></li>
           <li class="list-group-item"><%= @picture.month %>月</li>
