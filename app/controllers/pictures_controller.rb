@@ -21,7 +21,7 @@ end
 
 
 def show
-  @picture = Picture.includes(:user).find(params[:id])
+  @picture = Picture.includes(:user).includes(:comments).find(params[:id])
   @place = Place.find_by(picture_id: params[:id])
 end
 
