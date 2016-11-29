@@ -24,6 +24,13 @@ class CommentsController < ApplicationController
  redirect_to controller: :pictures, action: :index
 end
 
+def destroy
+  @comment = Comment.find(params[:id])
+  if @comment.user_id == current_user.id
+  @comment.destroy
+  end
+end
+
   private
   def comment_params
     params.require(:comment).permit(:rank, :comment).merge(picture_id: params[:picture_id], user_id: current_user.id)

@@ -33,7 +33,7 @@
           </div> -->
           <div class="menu">
 <% if user_signed_in? %>
-    <button class="menu_button"><%= link_to "この作品を投稿する",new_picture_comment_path(@picture.id)  %></button>
+    <button class="menu_button"><%= link_to "コメント・評価を投稿する",new_picture_comment_path(@picture.id)  %></button>
 <% end %>
 <% if user_signed_in? && current_user.id == @picture.user_id %>
     <button class="menu_button"><%= link_to '編集', "/pictures/#{@picture.id}/edit", method: :get  %></button>
@@ -66,7 +66,8 @@
   <% @picture.comments.each do |comment|%>
   <ul class="list-group textwhite">
     <li class="list-group-item">評価:<%= comment.rank %>/10</li>
-    <li class="list-group-item">コメント:<%= comment.comment %></li>
+    <li class="list-group-item">コメント:<%= comment.comment %><br>
+    <%= link_to '削除', "/pictures/#{@picture.id}/comments/#{comment.id}", method: :delete %></li>
   </ul>
   <% end %>
 </div>
