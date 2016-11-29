@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :pictures do
       collection do
       get 'search'
-    end
+      end
+
+      member do
+      get 'fullsize'
+      end
    resources :comments
   end
   resources :users

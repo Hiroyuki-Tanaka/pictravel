@@ -53,6 +53,10 @@ def search_output
  @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
 end
 
+def fullsize
+  @picture = Picture.find(params[:id]).picture
+end
+
 
 
 private
