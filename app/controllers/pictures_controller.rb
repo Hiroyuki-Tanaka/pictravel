@@ -38,9 +38,10 @@ def edit
 end
 
 def update
+  binding.pry
   picture = Picture.find(params[:id])
   if picture.user_id == current_user.id
-  picture.update(season: picture_params[:season], month: picture_params[:month], time: picture_params[:time], location: picture_params[:location],theme: picture_params[:theme], theme: picture_params[:theme])
+  picture.update(season: picture_params[:season], month: picture_params[:month], time: picture_params[:time], location: picture_params[:location],theme: picture_params[:theme], comment: picture_params[:comment])
   end
   redirect_to root_path
 end
