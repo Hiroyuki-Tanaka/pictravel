@@ -50,9 +50,14 @@ def search
 end
 
 def search_output
- @pictures = Picture.where(season: output_params[:season], time: output_params[:time], theme: output_params[:theme]).order("created_at DESC")
+ @pictures = Picture.where(season: output_params[:season]).order("created_at DESC")
  @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
 end
+
+# def search_output
+#  @pictures = Picture.where(season: output_params[:season], time: output_params[:time], theme: output_params[:theme]).order("created_at DESC")
+#  @ranking = Picture.group(:ave_rank).order("ave_rank DESC").limit(3)
+# end
 
 def fullsize
   @picture = Picture.find(params[:id]).picture

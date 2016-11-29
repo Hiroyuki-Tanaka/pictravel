@@ -9,7 +9,7 @@
 
     <nav class="navbar navbar-inverse header_bottom">
           <div class="menu">
-<button class="menu_button"><%= link_to "テーマから探す", search_pictures_path %></button>
+<button class="menu_button"><%= link_to "季節から探す", search_pictures_path %></button>
 <% if user_signed_in? %>
   <button class="menu_button"><%= link_to "マイページ", user_path(current_user.id) %></button>
   <button class="menu_button"><%= link_to "新規投稿", new_picture_path %></button>
