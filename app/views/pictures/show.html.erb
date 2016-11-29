@@ -34,7 +34,7 @@
     <button class="menu_button"><%= link_to "この作品を投稿する",new_picture_comment_path(@picture.id)  %></button>
 <% end %>
 <% if user_signed_in? && current_user.id == @picture.user_id %>
-    <button class="menu_button" ><%= link_to '編集', "/pictures/#{@picture.id}/edit", method: :get %></button>
+    <button class="menu_button"><%= link_to '編集', "/pictures/#{@picture.id}/edit", method: :get  %></button>
     <button class="menu_button"><%= link_to '削除', "/pictures/#{@picture.id}", method: :delete %></button>
 <% end %>
 </div>
